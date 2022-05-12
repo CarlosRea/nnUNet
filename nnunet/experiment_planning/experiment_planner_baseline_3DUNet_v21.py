@@ -25,7 +25,7 @@ class ExperimentPlanner3D_v21(ExperimentPlanner):
     """
     Combines ExperimentPlannerPoolBasedOnSpacing and ExperimentPlannerTargetSpacingForAnisoAxis
 
-    We also increase the base_num_features to 32. This is solely because mixed precision training with 3D convs and
+    We also increase the base_num_features to 24. This is solely because mixed precision training with 3D convs and
     amp is A LOT faster if the number of filters is divisible by 8
     """
     def __init__(self, folder_with_cropped_data, preprocessed_output_folder):
@@ -33,7 +33,7 @@ class ExperimentPlanner3D_v21(ExperimentPlanner):
         self.data_identifier = "nnUNetData_plans_v2.1"
         self.plans_fname = join(self.preprocessed_output_folder,
                                 "nnUNetPlansv2.1_plans_3D.pkl")
-        self.unet_base_num_features = 32
+        self.unet_base_num_features = 24
 
     def get_target_spacing(self):
         """
